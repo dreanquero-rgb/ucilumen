@@ -1,0 +1,12 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 630' role='img' aria-label='UcisLumen'>
+  <defs>
+    <linearGradient id='b' x1='0' y1='0' x2='1' y2='1'><stop offset='0%' stop-color='#241a3f'/><stop offset='100%' stop-color='#120d22'/></linearGradient>
+    <radialGradient id='glow' cx='78%' cy='28%' r='55%'><stop offset='0%' stop-color='#f5a623' stop-opacity='0.55'/><stop offset='100%' stop-color='#f5a623' stop-opacity='0'/></radialGradient>
+  </defs>
+  <rect width='1200' height='630' fill='url(#b)'/>
+  <rect width='1200' height='630' fill='url(#glow)'/>
+  <circle cx='930' cy='185' r='72' fill='#f5a623' opacity='0.9'/>
+  <text x='110' y='300' font-family='Georgia, serif' font-size='96' font-weight='700' fill='#fdf6ea'>UcisLumen</text>
+  <text x='114' y='372' font-family='sans-serif' font-size='34' fill='#cbbdf0'>Illuminazione decorativa e lampade personalizzate</text>
+  <text x='114' y='432' font-family='sans-serif' font-size='26' fill='#9a8fc0'>Idee regalo luminose · Mood lighting · ucislumen.it</text>
+</svg>

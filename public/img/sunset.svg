@@ -1,0 +1,9 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300' role='img' aria-label='Proiettore tramonto'>
+  <defs>
+    <linearGradient id='sun' x1='0' y1='0' x2='0' y2='1'><stop offset='0%' stop-color='#ffd27a'/><stop offset='38%' stop-color='#ff8f5e'/><stop offset='70%' stop-color='#ff5e62'/><stop offset='100%' stop-color='#6a3093'/></linearGradient>
+    <radialGradient id='disc' cx='50%' cy='50%' r='50%'><stop offset='0%' stop-color='#fff2c6'/><stop offset='100%' stop-color='#ffb24d'/></radialGradient>
+  </defs>
+  <rect width='400' height='300' fill='url(#sun)'/>
+  <circle cx='200' cy='150' r='70' fill='url(#disc)' opacity='0.92'/>
+  <text x='200' y='280' text-anchor='middle' font-family='sans-serif' font-size='15' letter-spacing='2' fill='#ffffff' opacity='0.9'>PROIETTORE TRAMONTO</text>
+</svg>
