@@ -1,0 +1,16 @@
+{
+  "name": "ucilumen",
+  "version": "0.1.0",
+  "private": true,
+  "description": "UcisLumen - shop home living (illuminazione decorativa) su Cloudflare Pages + D1 + Stripe.",
+  "scripts": {
+    "dev": "wrangler pages dev",
+    "db:schema": "wrangler d1 execute homeliving-shop-catalog --remote --file=./schema.sql",
+    "db:seed": "wrangler d1 execute homeliving-shop-catalog --remote --file=./seed.sql",
+    "db:schema:local": "wrangler d1 execute homeliving-shop-catalog --local --file=./schema.sql",
+    "db:seed:local": "wrangler d1 execute homeliving-shop-catalog --local --file=./seed.sql"
+  },
+  "devDependencies": {
+    "wrangler": "^3.95.0"
+  }
+}
