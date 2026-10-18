@@ -1,0 +1,15 @@
+# Copia questo file in `.dev.vars` per lo sviluppo locale.
+# `.dev.vars` NON va committato (e' ignorato da .gitignore).
+#
+# Usa SEMPRE le chiavi Stripe in modalita' TEST in questa fase.
+# Le trovi su https://dashboard.stripe.com/test/apikeys
+# (il valore reale inizia con sk_test_)
+STRIPE_SECRET_KEY="<INCOLLA_QUI_LA_CHIAVE_SEGRETA_DI_TEST>"
+
+# Secret del webhook Stripe (il valore reale inizia con whsec_). Per i test in
+# locale: `stripe listen --forward-to http://localhost:8788/api/stripe-webhook`
+STRIPE_WEBHOOK_SECRET="<INCOLLA_QUI_IL_SECRET_DEL_WEBHOOK>"
+
+# URL pubblico usato per i link canonical e la sitemap durante lo sviluppo.
+# In produzione e' definito in wrangler.toml -> [vars].
+SITE_URL="http://localhost:8788"

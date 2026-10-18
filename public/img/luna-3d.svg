@@ -1,0 +1,14 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300' role='img' aria-label='Lampada luna 3D'>
+  <defs>
+    <radialGradient id='sky' cx='50%' cy='50%' r='75%'><stop offset='0%' stop-color='#14233c'/><stop offset='100%' stop-color='#0a1422'/></radialGradient>
+    <radialGradient id='moon' cx='38%' cy='34%' r='72%'><stop offset='0%' stop-color='#fdfbf3'/><stop offset='60%' stop-color='#d9cbb0'/><stop offset='100%' stop-color='#8a7f6a'/></radialGradient>
+  </defs>
+  <rect width='400' height='300' fill='url(#sky)'/>
+  <circle cx='200' cy='138' r='92' fill='url(#moon)'/>
+  <circle cx='170' cy='110' r='12' fill='#b7a98c' opacity='0.5'/>
+  <circle cx='225' cy='150' r='18' fill='#b7a98c' opacity='0.4'/>
+  <circle cx='195' cy='175' r='9' fill='#b7a98c' opacity='0.45'/>
+  <circle cx='235' cy='112' r='7' fill='#b7a98c' opacity='0.4'/>
+  <rect x='170' y='236' width='60' height='10' rx='3' fill='#6b4f31'/>
+  <text x='200' y='276' text-anchor='middle' font-family='sans-serif' font-size='15' letter-spacing='2' fill='#9fb4d6'>LAMPADA LUNA 3D</text>
+</svg>

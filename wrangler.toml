@@ -1,0 +1,24 @@
+# Configurazione Cloudflare Pages per UcisLumen
+# Quando questo file e' presente, diventa la "source of truth": i binding e le
+# variabili qui definiti NON sono piu' modificabili dal dashboard Cloudflare.
+#
+# I SEGRETI (chiavi Stripe) NON vanno qui: si impostano come secret dal dashboard
+# (Settings > Variables and Secrets) oppure con `wrangler pages secret put`.
+
+name = "ucilumen"
+pages_build_output_dir = "public"
+compatibility_date = "2025-01-01"
+
+# Variabili pubbliche (non segrete). In Fase 1, quando il dominio sara' collegato,
+# cambiare SITE_URL in "https://ucislumen.it".
+[vars]
+SITE_URL = "https://ucilumen.pages.dev"
+
+# Database catalogo (gia' creato su Cloudflare).
+# Binding disponibile nelle Functions come env.DB
+[[d1_databases]]
+binding = "DB"
+database_name = "homeliving-shop-catalog"
+database_id = "4d2c07cd-da8e-4b3a-a6bd-a9252c470691"
+# preview_database_id e' richiesto per lo sviluppo locale con Pages.
+preview_database_id = "4d2c07cd-da8e-4b3a-a6bd-a9252c470691"
