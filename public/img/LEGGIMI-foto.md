@@ -1,26 +1,20 @@
-# Come aggiungere le foto reali
+# Immagini del sito
 
-Il sito usa queste immagini. Caricale in questa cartella (`public/img/`) con
-**esattamente** questi nomi:
+## Foto dei prodotti — dall'URL del fornitore (nessun download)
 
-| File | Dove appare |
-|------|-------------|
-| `hero.jpg` | immagine grande della home (hero) |
-| `cat-personalizzata.jpg` | banner categoria “Illuminazione personalizzata” |
-| `cat-mood.jpg` | banner categoria “Mood lighting” |
+Le foto dei prodotti NON si scaricano: si usa direttamente l'URL dell'immagine
+sul sito del fornitore (es. AliExpress / alicdn.com).
 
-## Come fare (da browser, 2 minuti)
+Come prendere l'URL di un'immagine su AliExpress:
+1. Apri la pagina del prodotto, tasto destro sulla foto → **Copia indirizzo immagine**.
+2. Incolla quell'URL nel campo immagine del prodotto (dalla pagina **Admin**),
+   oppure passamelo in chat e lo imposto io nel database.
 
-1. Apri le grafiche generate in Canva (link nella chat) e **scaricale in alta
-   risoluzione** (pulsante *Download*, formato JPG). Consigliato: lato lungo
-   ~1600 px.
-2. Rinominale come nella tabella qui sopra.
-3. Caricale su GitHub: entra in `public/img/`, premi **Add file › Upload files**,
-   trascina i 3 file e premi **Commit changes** (sul branch del sito).
+Il sito mostra l'immagine direttamente da quell'URL. Nota: se il fornitore
+rimuove l'immagine, il link si rompe; per il lancio va bene, in seguito si
+potranno ospitare foto proprie.
 
-> Nota: i file immagine sono *binari* e non possono essere aggiunti dallo
-> strumento usato nella chat (che gestisce solo testo). Per questo il
-> caricamento va fatto da qui (GitHub web) o da un ambiente locale con git.
->
-> Finché i file non ci sono, al loro posto compare un'immagine mancante: non
-> è un errore del sito.
+## Hero e banner di categoria
+
+Usano grafiche vettoriali del brand (file SVG già nel repo): nessun caricamento
+necessario. In Fase 1 si potranno sostituire con foto lifestyle reali.

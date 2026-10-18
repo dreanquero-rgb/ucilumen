@@ -1,0 +1,11 @@
+/* Override tipografici caricati DOPO style.css.
+   Titoli: Bricolage Grotesque (moderno, con carattere). Corpo: Hanken Grotesk
+   (caldo, leggibile). Neon: Sacramento (vero stile insegna). Serviti da Google
+   Fonts via <link> nel layout. In Fase 1 si possono self-hostare per il GDPR. */
+:root {
+  --sans: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --serif: 'Bricolage Grotesque', Georgia, ui-serif, serif;
+  --neon: 'Sacramento', 'Segoe Script', cursive;
+}
+h1, h2, h3 { letter-spacing: -0.015em; }
+.neon-text { font-family: var(--neon); font-size: clamp(2rem, 8vw, 3rem); line-height: 1.15; font-weight: 400; }

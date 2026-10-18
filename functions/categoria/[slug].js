@@ -3,8 +3,8 @@ import { productGrid, breadcrumb } from '../../lib/components.js';
 import { getProductsByCategory } from '../../lib/db.js';
 import { categoryBySlug } from '../../lib/catalog.js';
 
-// Banner di categoria: foto reali (da caricare in public/img/).
-const BANNERS = { personalized_gift: '/img/cat-personalizzata.jpg', mood_lighting: '/img/cat-mood.jpg' };
+// Grafiche brand (SVG) per il banner di categoria.
+const BANNERS = { personalized_gift: '/img/neon-personalizzata.svg', mood_lighting: '/img/luna-3d.svg' };
 
 export async function onRequestGet(context) {
   const { env, request, params } = context;
@@ -17,7 +17,7 @@ export async function onRequestGet(context) {
   try { products = await getProductsByCategory(env.DB, cat.code); } catch (e) { products = []; }
 
   const banner = BANNERS[cat.code] || '/img/og-default.svg';
-  const heroStyle = 'background:linear-gradient(rgba(20,12,6,.5),rgba(20,12,6,.6)),url(' + banner + ') center/cover;color:#fff;border-bottom:0';
+  const heroStyle = 'background:linear-gradient(rgba(20,12,6,.5),rgba(20,12,6,.62)),url(' + banner + ') center/cover;color:#fff;border-bottom:0';
 
   const body = ''
     + breadcrumb([{ label: 'Home', href: '/' }, { label: cat.name }])
