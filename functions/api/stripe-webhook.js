@@ -1,5 +1,6 @@
 import { verifyStripeSignature } from '../../lib/stripe.js';
-import { createOrder, orderExistsForPayment } from '../../lib/db.js';
+import { createOrder, orderExistsForPayment, getVariantsByIds } from '../../lib/db.js';
+import { sendEmail, customerOrderEmail, adminOrderEmail } from '../../lib/email.js';
 
 export async function onRequestPost(context) {
   const { request, env } = context;
@@ -62,10 +63,57 @@ export async function onRequestPost(context) {
         notes: 'Dettaglio articoli non disponibile nei metadata della sessione.',
       });
     }
+
+    // Email di conferma (best-effort: non deve mai far fallire il webhook).
+    try {
+      const items = await buildEmailItems(env.DB, metaItems);
+      const hasPers = items.some(function (it) { return !!it.personalization; });
+      const replyTo = env.EMAIL_REPLY_TO || env.ADMIN_EMAIL || null;
+      if (email) {
+        await sendEmail(env, {
+          to: email,
+          replyTo: replyTo,
+          subject: 'Il tuo ordine UcisLumen ' + base,
+          html: customerOrderEmail({ orderNumber: base, name: name, items: items, totalCents: amountTotal, hasPersonalized: hasPers }),
+        });
+      }
+      const notify = env.NOTIFY_EMAIL || env.ADMIN_EMAIL;
+      if (notify) {
+        let site = (env && env.SITE_URL) ? env.SITE_URL : new URL(request.url).origin;
+        if (site.endsWith('/')) site = site.slice(0, -1);
+        await sendEmail(env, {
+          to: notify,
+          replyTo: email || null,
+          subject: 'Nuovo ordine ' + base,
+          html: adminOrderEmail({ orderNumber: base, name: name, email: email, items: items, totalCents: amountTotal, adminUrl: site + '/admin' }),
+        });
+      }
+    } catch (e) { /* email best-effort */ }
+
     return new Response('ok', { status: 200 });
   } catch (e) {
     return new Response('Errore interno', { status: 500 });
   }
+}
+
+async function buildEmailItems(DB, metaItems) {
+  if (!Array.isArray(metaItems) || !metaItems.length) return [];
+  const ids = [];
+  for (const m of metaItems) if (m && m.v && ids.indexOf(m.v) === -1) ids.push(m.v);
+  let variants = [];
+  try { variants = await getVariantsByIds(DB, ids); } catch (e) { variants = []; }
+  const byId = {};
+  variants.forEach(function (v) { byId[v.id] = v; });
+  return metaItems.map(function (m) {
+    const v = byId[m.v];
+    return {
+      name: v ? v.product_name : 'Prodotto',
+      variant: v ? v.variant_label : '',
+      qty: m.q || 1,
+      personalization: m.t || '',
+      lineCents: (typeof m.a === 'number') ? m.a : 0,
+    };
+  });
 }
 
 function formatAddress(session) {
