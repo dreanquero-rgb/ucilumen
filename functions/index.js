@@ -13,7 +13,8 @@ export async function onRequestGet(context) {
     .map((o) => '<a class="chip" href="/categoria/' + CATEGORIES.personalized_gift.slug + '">' + esc(o) + '</a>')
     .join('');
 
-  const catImages = { personalized_gift: '/img/neon-personalizzata.svg', mood_lighting: '/img/luna-3d.svg' };
+  // Banner di categoria: foto reali (da caricare in public/img/). Vedi public/img/LEGGIMI-foto.md
+  const catImages = { personalized_gift: '/img/cat-personalizzata.jpg', mood_lighting: '/img/cat-mood.jpg' };
   const catCards = Object.values(CATEGORIES).map((c) =>
     '<a class="cat-card" href="/categoria/' + c.slug + '">'
     + '<img src="' + catImages[c.code] + '" alt="" loading="lazy">'
@@ -30,7 +31,7 @@ export async function onRequestGet(context) {
     + '<div class="hero-cta"><a class="btn btn-primary" href="/categoria/' + CATEGORIES.personalized_gift.slug + '">Crea la tua luce personalizzata</a>'
     + '<a class="btn btn-ghost" href="/categoria/' + CATEGORIES.mood_lighting.slug + '">Scopri il mood lighting</a></div>'
     + '</div>'
-    + '<div class="hero-art"><img src="/img/neon-personalizzata.svg" alt="Esempio di insegna al neon personalizzata" width="560" height="420"></div>'
+    + '<div class="hero-art"><img src="/img/hero.jpg" alt="Insegna al neon personalizzata con un nome, accesa in una cameretta dai toni caldi" width="1280" height="720"></div>'
     + '</div></section>'
     + trustStrip()
     + '<section class="section"><div class="container">'
