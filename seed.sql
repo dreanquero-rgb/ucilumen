@@ -25,7 +25,7 @@ INSERT OR IGNORE INTO products
   (id, slug, name, category, description, base_price_cents, supplier_name, supplier_url, supplier_cost_cents, shipping_days_min, shipping_days_max, requires_manual_personalization, image_url, active)
 VALUES
   (2, 'lampada-luna-3d', 'Lampada Luna 3D Ricaricabile', 'mood_lighting',
-   'Riproduzione realistica della superficie lunare stampata in 3D. Luce a intensita'' regolabile con tonalita'' dal bianco caldo al freddo, base in legno inclusa e ricarica USB. Crea un''atmosfera rilassante in camera o in salotto.',
+   'Riproduzione realistica della superficie lunare stampata in 3D. Luce a intensità regolabile con tonalità dal bianco caldo al freddo, base in legno inclusa e ricarica USB. Crea un''atmosfera rilassante in camera o in salotto.',
    2490, 'AliExpress', 'https://www.aliexpress.com/', 900, 8, 15, 0,
    '/img/luna-3d.svg', 1);
 
